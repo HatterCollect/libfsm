@@ -9,6 +9,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#include <fsm/fsm.h>
+
 #include <re/re.h>
 
 #include "class.h"

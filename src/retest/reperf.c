@@ -511,7 +511,7 @@ perf_case_run(struct perf_case *c, double *delta)
 		comp_err = err_zero;
 		flags = 0;
 		re = c->regexp.data;
-		fsm = re_comp(c->dialect, fsm_sgetc, &re, &opt, flags, &comp_err);
+		fsm = re_comp_new(c->dialect, fsm_sgetc, &re, &opt, flags, &comp_err);
 		if (fsm == NULL) {
 			return ERROR_PARSING_REGEXP;
 		}
