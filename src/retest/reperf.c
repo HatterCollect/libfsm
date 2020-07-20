@@ -636,7 +636,11 @@ perf_case_run(struct perf_case *c,
 	for (iter=0; iter < c->count; iter++) {
 		int r;
 
-		r = fsm_runner_run(&runner, contents.data, contents.len);
+		if (c->mt != MATCH_NONE) {
+			assert(contents.data != NULL);
+
+			r = fsm_runner_run(&runner, contents.data, contents.len);
+		}
 
 		/* XXX - at some point, match more than once! */
 		if (!!r != !!c->expected_matches) {
